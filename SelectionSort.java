@@ -1,18 +1,20 @@
 public class SelectionSort implements SortingAlgorithm
 {
 	public void sort(int[] a){
-		for(int i = 0;  i<a.length ; i++){
-			for(int j = 0 ; j<a.length - 1 - i ; j++){
-				if(a[j]>a[j+1]){
-					swap(a,j,j+1);
+		int min, temp;
+		int n = a.length;
+		for(int i = 0;  i<n-1; i++){
+			min = i;
+			for (int j = i+1 ; j<n ; j++){
+				if(a[j]<a[min]){
+					min = j;
 				}
 			}
+			temp = a[i];
+			a[i] = a[min];
+			a[min] = temp;
+			
 		}
 	}
 
-	void swap(int[] a, int x, int y){
-		int temp = a[x];
-		a[x] = a[y];
-		a[y] = temp; 
-	}
 }
